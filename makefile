@@ -16,19 +16,24 @@ run:
 interbash:
 	docker run -it knn_iris /bin/bash
 
-
 # login to dockerhub
 .PHONY: login
 login:
-	docker login -u "DOCKER_USER"
+	docker login -u dscerbo
+
+# tag image before pushing to dockerhub
+.PHONY: tag
+tag:
+	docker tag knn_iris:latest dscerbo/knn_iris:v0.0.1
 
 # now push your image to dockerhub
 .PHONY: push
 push:
-	docker push <DOCKER_USER>/<DOCKER_REPO>:latest
-
-
+	docker push dscerbo/knn_iris:v0.0.1
 
 .PHONY: clean_containers
 clean_containers:
 	docker ps -aq | xargs docker stop | xargs docker rm
+
+.PHONY: clean_images
+	docker rmi $(docker images -a -q)
