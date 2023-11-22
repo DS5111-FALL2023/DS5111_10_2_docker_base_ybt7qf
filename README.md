@@ -30,3 +30,5 @@ The image you will build uses scikit-learn to train a knn classifier on the iris
 Here is a link to the documentation page on dockerhub  https://docs.docker.com/docker-hub/repos/create/
 
 ## Grading: 10 points if I can use dockerhub to use your image and see the png generated
+
+see [dscerbo/knn_iris:v0.0.1](https://hub.docker.com/repository/docker/dscerbo/knn_iris/general)
